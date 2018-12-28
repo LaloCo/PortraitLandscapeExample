@@ -16,6 +16,15 @@ namespace PortraitLandscapeExample
             Xamarin.Forms.PlatformConfiguration.iOSSpecific.Page.SetUseSafeArea(this, true);
 
             PopulateCategories();
+
+            SizeChanged += MainPage_SizeChanged;
+        }
+
+        void MainPage_SizeChanged(object sender, EventArgs e)
+        {
+            string visualState = Width > Height ? "Landscape" : "Portrait";
+
+            VisualStateManager.GoToState(titleLabel, visualState);
         }
 
         private void PopulateCategories()

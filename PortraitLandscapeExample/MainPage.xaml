@@ -5,11 +5,27 @@
              x:Class="PortraitLandscapeExample.MainPage">
     <StackLayout Margin="0,20,0,0">
         <!-- Place new controls here -->
-        <Label Text="Categories"
+        <Label x:Name="titleLabel"
+               Text="Categories"
                TextColor="Coral"
                FontSize="30"
                FontAttributes="Bold"
-               Margin="16,0"/>
+               Margin="16,0">
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup Name="OrientationStates">
+                    <VisualState Name="Portrait">
+                        <VisualState.Setters>
+                            <Setter Property="IsVisible" Value="true"/>
+                        </VisualState.Setters>
+                    </VisualState>
+                    <VisualState Name="Landscape">
+                        <VisualState.Setters>
+                            <Setter Property="IsVisible" Value="false"/>
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+        </Label>
         <ListView x:Name="mainListView">
             <ListView.ItemTemplate>
                 <DataTemplate>
